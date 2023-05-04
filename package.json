@@ -1,5 +1,5 @@
 {
-  "name": "@i.solovev/dependency-tree",
+  "name": "@tregdor/dependency-tree",
   "version": "1.0.0",
   "description": "Get the dependency of a file. This is fork of node-dependency-tree",
   "main": "index.js",
