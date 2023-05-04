@@ -51,7 +51,7 @@ module.exports = function(options) {
   }
 
   debug('final tree', tree);
-  return traverse(config);
+  return results;
 };
 
 /**
