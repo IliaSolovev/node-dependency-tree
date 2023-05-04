@@ -1,7 +1,7 @@
 {
-  "name": "dependency-tree",
-  "version": "9.0.0",
-  "description": "Get the dependency tree of a module",
+  "name": "@i.solovev/dependency-tree",
+  "version": "1.0.0",
+  "description": "Get the dependency of a file. This is fork of node-dependency-tree",
   "main": "index.js",
   "types": "index.d.ts",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:mrjoelkemp/node-dependency-tree.git"
+    "url": "git@github.com:IliaSolovev/node-dependency-tree.git"
   },
   "keywords": [
     "dependency",
@@ -32,12 +32,12 @@
   "author": "Joel Kemp <joel@mrjoelkemp.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/mrjoelkemp/node-dependency-tree/issues"
+    "url": "https://github.com/IliaSolovev/node-dependency-tree/issues"
   },
   "engines": {
     "node": "^10.13 || ^12 || >=14"
   },
-  "homepage": "https://github.com/mrjoelkemp/node-dependency-tree",
+  "homepage": "https://github.com/IliaSolovev/node-dependency-tree",
   "dependencies": {
     "commander": "^2.20.3",
     "debug": "^4.3.1",
