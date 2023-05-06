@@ -1,7 +1,6 @@
 'use strict';
 
 const precinct = require('precinct');
-const path = require('path');
 const fs = require('fs');
 const cabinet = require('filing-cabinet');
 const debug = require('debug')('tree');
@@ -52,7 +51,7 @@ module.exports = function(options) {
   }
 
   debug('final tree', tree);
-  return tree;
+  return results;
 };
 
 /**
@@ -140,7 +139,6 @@ module.exports._getDependencies = function(config) {
  */
 function traverse(config) {
   let subTree = config.isListForm ? new Set() : {};
-
   debug('traversing ' + config.filename);
 
   if (config.visited[config.filename]) {
@@ -164,28 +162,14 @@ function traverse(config) {
     debug('filtered number of dependencies: ' + dependencies.length);
   }
 
-  for (let i = 0, l = dependencies.length; i < l; i++) {
-    const d = dependencies[i];
-    const localConfig = config.clone();
-    localConfig.filename = d;
-
-    if (localConfig.isListForm) {
-      for (let item of traverse(localConfig)) {
-        subTree.add(item);
-      }
-    } else {
-      subTree[d] = traverse(localConfig);
-    }
-  }
-
   if (config.isListForm) {
     subTree.add(config.filename);
-    config.visited[config.filename].push(...subTree);
+    config.visited[config.filename].push(...dependencies);
   } else {
-    config.visited[config.filename] = subTree;
+    config.visited[config.filename] = dependencies;
   }
 
-  return subTree;
+  return dependencies;
 }
 
 // Mutate the list input to do a dereferenced modification of the user-supplied list
